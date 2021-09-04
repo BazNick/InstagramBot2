@@ -123,7 +123,7 @@ class InstagramBot:
         my_followers = []
         for i in range(number_of_followers):
             try:
-                element_to_scroll = f'/html/body/div[5]/div/div/div[2]/ul/div/li[{number}]'
+                element_to_scroll = f'/html/body/div[6]/div/div/div[2]/ul/div/li[{number}]'
                 number += 1
                 element_to_scroll_by = self.browser.find_element_by_xpath(element_to_scroll)
                 self.browser.execute_script('arguments[0].scrollIntoView();', element_to_scroll_by)
@@ -136,7 +136,7 @@ class InstagramBot:
         for every_user in my_followers:
             with open('my_Subscribes.txt', 'a') as file_obj:
                 file_obj.write(f'{every_user}\n')
-        self.browser.find_element_by_xpath('/html/body/div[5]/div/div/div[1]/div/div[2]/button').click()
+        self.browser.find_element_by_xpath('/html/body/div[6]/div/div/div[1]/div/div[2]/button').click()
         time.sleep(1)
 
     def non_followers(self):
@@ -165,7 +165,7 @@ class InstagramBot:
         number_of_following_list = 0
         while True:
             try:
-                element_to_scroll = f'/html/body/div[5]/div/div/div[2]/ul/div/li[{number_of_following_list + 1}]'
+                element_to_scroll = f'/html/body/div[6]/div/div/div[3]/ul/div/li[{number_of_following_list + 1}]'
                 element_to_scroll_by = self.browser.find_element_by_xpath(element_to_scroll)
                 self.browser.execute_script('arguments[0].scrollIntoView();', element_to_scroll_by)
                 time.sleep(0.5)
@@ -197,7 +197,7 @@ class InstagramBot:
             #     here you can specify how many unsubscriptions you want to make
             if number_of_analyzing_followings == 15:
                 break
-        self.browser.find_element_by_xpath('/html/body/div[5]/div/div/div[1]/div/div[2]/button').click()
+        self.browser.find_element_by_xpath('/html/body/div[6]/div/div/div[1]/div/div[2]/button').click()
         time.sleep(2)
         # this instruction tells browser to update on the page number of subscriptions
         self.browser.refresh()
